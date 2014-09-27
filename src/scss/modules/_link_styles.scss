@@ -1,0 +1,32 @@
+a[href^='http://'] {
+  /* fully valid URL, likely external link */
+}
+
+a[href='http://google.com'] {
+  /* link to specific website */
+}
+
+a[href^='/'],
+a[href^='..'] {
+  /* internal relative link */
+}
+
+a[href^='mailto:'] {
+  /* email link */
+}
+
+a[href$='.pdf'] {
+  /* PDF file */
+}
+
+a[href$='.doc'] {
+  /* Microsoft Word document */
+}
+
+a[href$='.mp3'] {
+  /* Music file */
+}
+
+a[href$='.zip'] {
+  /* Archive file */
+}

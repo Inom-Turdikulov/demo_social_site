@@ -1,0 +1,70 @@
+// ==========================================================================
+//   Initial font-size and em function
+// ========================================================================
+
+$base-font-size: 14px; // Most used font-size
+$base-font-size-small: 12px;
+
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+// ==========================================================================
+//   Project variables
+// ========================================================================
+
+$base-text-color: #000;
+$base-font-family: Tahoma, Arial, sans-serif;
+$base-selection-color: #6ba8eb;
+
+$base-bg-color: #efefef; // Default bg color
+$base-color: #4b75a5; // Usualy used for link, base elements
+
+//
+// Border styles
+//
+
+$base-border-color: #ddd;
+$base-border-radius: 3px;
+
+//
+// Button && Inputs styles
+//
+
+$button-font-family: $base-font-family;
+$button-font-size: $base-font-size;
+
+$input-font-family: $base-font-family;
+$input-font-size: 12px;
+$input-font-color: #b4b9bc;
+
+//
+// Link styles
+//
+
+$base-link-color: $base-color;
+$base-link-hover-color: darken( $base-link-color, 10% );
+$base-link-active-color: darken( $base-link-color, 10% );
+$base-link-visited-color: lighten( $base-link-color, 10%);
+$base-link-focus-outline: none;
+
+//
+// Heading styles (font-size computed)
+//
+$base-heading-color: $base-text-color;
+$base-heading-font-family: $base-text-color;
+
+$h1-font-size: $base-font-size * 2; //14*2 = 28px
+$h2-font-size: $h1-font-size - 2px; //26px
+$h3-font-size: $h2-font-size - 2px; //24px
+$h4-font-size: $h3-font-size - 2px; //22px
+$h5-font-size: $h4-font-size - 2px; //20px
+$h6-font-size: $h5-font-size - 2px; //18px
+
+// Forms variables
+
+$base-fieldset-border: 0;
+
+
+// Custom variables
+$legacy-ie-support: true; /* IE6-7 */

@@ -1,0 +1,66 @@
+//
+//Mixins set
+//
+
+//1 function pxtoem in variables.scss
+
+
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    display: table;
+
+    content: ' ';
+  }
+  &:after {
+    clear: both;
+  }
+  @if $legacy-ie-support == true {
+    & {
+      *zoom: 1;
+    }
+  }
+}
+
+@mixin ir {
+  & {
+    overflow: hidden;
+
+    border: 0;
+    background-color: transparent;
+    @if $legacy-ie-support == true {
+      *text-indent: -9999px;
+    }
+  }
+  &:before {
+    display: block;
+
+    width: 0;
+    height: 150%;
+
+    content: '';
+  }
+}
+
+@mixin nolist {
+  margin-bottom: 0;
+  padding-left: 0;
+
+  list-style: none;
+}
+
+@mixin inline-block {
+  // uncomment to add ff2 support
+  // display:-moz-inline-box;
+  // -moz-box-orient:vertical;
+  display: inline-block;
+
+  vertical-align: middle;
+  white-space: nowrap;
+  @if $legacy-ie-support == true {
+    zoom: 1;
+
+    *display: inline;
+  }
+}

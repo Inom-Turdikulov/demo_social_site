@@ -1,0 +1,845 @@
+/*! BASED ON HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+/* ==========================================================================
+   Import base styles, typography and grid
+   ========================================================================== */
+@import 'variables';
+@import 'mixins';
+@import 'basic-sprite';
+@import 'normalize';
+@import 'icons';
+@import 'grid';
+@import 'type';
+
+/* ==========================================================================
+   Project base layout
+   ========================================================================== */
+body {
+  min-width: em(960px);
+}
+.l-wrapper {
+  overflow: hidden;
+
+  background: #355d8a;
+  .l-wrapper-in {
+    position: relative;
+    left: 200px;
+
+    width: 100%;
+
+    background: $base-bg-color;
+
+    @include clearfix;
+    /*
+     * Last wrapper
+     */
+    .l-content {
+      position: relative;
+      left: -200px;
+
+      overflow: auto;
+
+      width: 100%;
+      /*
+       * Content column
+       */
+      .l-col-1 {
+        position: relative;
+
+        padding-left: 200px;
+      }
+      /*
+       * Menu column
+       */
+      .l-col-2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 200px;
+      }
+    }
+  }
+}
+
+.l-header {
+  padding: em(19px) 0;
+
+  background-color: #4b75a5;
+
+  @include clearfix;
+}
+
+.l-main {
+  float: left;
+
+  width: 100%;
+  min-width: 400px;
+
+  background: $base-bg-color;
+}
+
+.l-sidebar {
+  margin-top: em(26px);
+}
+
+.l-usr-content {
+  margin-right: em(270px);
+  margin-left: em(20px);
+}
+.l-advansed-info {
+  float: left;
+
+  width: em(270px);
+  margin-left: em(-270px);
+}
+
+/* ==========================================================================
+   Project page layout
+   ========================================================================== */
+.l-header {
+  padding-right: em(71px);
+  padding-left: em(20px);
+  .logo {
+    margin-right: em(20px);
+  }
+}
+
+/*
+ * Smart grid (in homepage)
+ */
+
+.usr-content {
+  .usr-content-item,
+  .grid-sizer {
+    float: left;
+
+    width: 33.3%;
+    min-width: em(280px);
+  }
+  .usr-content-item.w2 {
+    width: 66.6%;
+    min-width: em(475px);
+  }
+}
+
+/* ======================================9====================================
+   Projects global blocks (buttons, popups, checkboxes, radioboxes, polls)
+   ========================================================================== */
+
+/* ==========================================================================
+   Projects main modules
+   ========================================================================== */
+.logo {
+  @include inline-block;
+  h1 {
+    margin: 0;
+
+    @include sprite($s-logo);
+    @include ir;
+  }
+}
+
+.search {
+  position: relative;
+
+  width: em(129px);
+  margin-right: em(30px);
+  padding-left: em(4px);
+
+  border: 0 solid transparent;
+  border-radius: $base-border-radius;
+  background: #355d8a;
+
+  @include inline-block;
+  input {
+    width: em(129px - 30px, $input-font-size);
+    padding: em(5px, $input-font-size) em(20px, $input-font-size) em(5px, $input-font-size) 0;
+
+    color: #c3d6ed;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background: #355d8a;
+  }
+  /* Remove webikt autofil style */
+  input:-webkit-autofill {
+    color: #c3d6ed !important; /* TC */
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 0 50px #355d8a !important; /* BG */
+
+    -webkit-text-fill-color: #c3d6ed !important; /* TC */
+  }
+  .icon-search {
+    position: absolute;
+    top: em(7px);
+    right: em(10px);
+  }
+}
+
+.main-menu {
+  @include inline-block;
+  ul {
+    @include nolist;
+    li {
+      line-height: em(32px);
+
+      height: em(32px);
+      margin-left: em(30px);
+
+      @include inline-block;
+      &:first-child {
+        margin-left: 0;
+      }
+      a {
+        color: #355d8a;
+        &:hover {
+          text-decoration: none;
+
+          color: lighten(#355d8a, 50%);
+        }
+      }
+    }
+  }
+}
+
+.side-menu {
+  @include nolist;
+  li {
+    line-height: 1;
+
+    margin-bottom: em(22px);
+    margin-left: em(20px);
+    a {
+      font-size: em(16px);
+      line-height: em(17px, 16px);
+
+      display: block;
+
+      color: #c3d6ed;
+      &:hover {
+        text-decoration: none;
+
+        opacity: .6;
+      }
+      &:active {
+        opacity: .4;
+      }
+      [class^='icon-'] {
+        margin-right: em(12px, 16px);
+      }
+      .counter {
+        font-size: em(12px, 16px);
+
+        display: block;
+        float: right;
+
+        margin-right: em(20px, 16px);
+        padding: 0 em(4px, 16px);
+
+        border: 0 solid #4b75a5;
+        border-radius: $base-border-radius;
+        background: #4b75a5;
+      }
+    }
+  }
+}
+
+.usr-profile {
+  float: right;
+  .usr-profile-actions {
+    @include nolist;
+    @include inline-block;
+    li {
+      margin-right: em(21px);
+
+      @include inline-block;
+      a:hover {
+        opacity: .8 ;
+      }
+    }
+  }
+}
+
+.user-photo,
+.repost-image {
+  line-height: em(32px);
+
+  height: em(32px);
+
+  @include inline-block;
+  img {
+    min-height: 100%;
+    margin-right: em(14px);
+
+    border-radius: em(16px);
+  }
+  a {
+    color: #fff;
+  }
+}
+
+.repost-image {
+  a {
+    font-size: em(16px);
+
+    color: $base-link-color;
+  }
+}
+
+.main-photos {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: em(400px);
+  &:after {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: em(202px);
+
+    content: '';
+
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.65) 100%);
+  }
+}
+
+.main-photos-album {
+  img {
+    min-width: 100%;
+  }
+}
+
+
+.main-photos-info {
+  position: absolute;
+  z-index: 1;
+  bottom: em(13px);
+  left: 0;
+
+  width: 100%;
+  h2 {
+    font-size: em(24px);
+    font-weight: normal;
+
+    margin-bottom: em(10px, 24px);
+    margin-left: em(20px, 24px);
+
+    color: #fff;
+  }
+}
+
+.album-info {
+  @include clearfix;
+  .album-info-thumb {
+    float: left;
+
+    margin: em(7px) em(15px) 0 em(20px);
+  }
+  .album-info-content {
+    float: left;
+
+    margin: 0;
+
+    color: #fff;
+  }
+}
+
+
+.usr-info {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: em(400px);
+
+  text-align: center;
+
+  color: #fff;
+  background-color: #22343d;
+  background-color: rgba(34, 52, 61, .6);
+  &:after {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+  }
+  .usr-info-avatar {
+    width: em(100px);
+    height: em(100px);
+    margin: em(30px) 0 em(25px);
+
+    @include inline-block;
+    img {
+      width: 100%;
+      height: 100%;
+
+      border-radius: em(50px);
+    }
+  }
+  .usr-info-name {
+    font-size: em(21px);
+
+    margin-bottom: 0;
+  }
+  .usr-info-status {
+    font-size: em(12px);
+
+    margin-bottom: em(42px, 21px);
+  }
+  .icon-usr-add-to-friends {
+    margin-right: em(20px);
+  }
+  .icon-usr-add-to-friends,
+  .icon-usr-new-message {
+    margin-bottom: em(28px);
+  }
+  .usr-info-photos {
+    overflow: hidden;
+
+    margin: 0 em(20px);
+    p {
+      font-size: em(16px);
+      font-weight: bold;
+
+      margin-bottom: em(30px, 16px);
+
+      text-align: left;
+      text-transform: uppercase;
+
+      color: #fff;
+      .icon-arrow-left,
+      .icon-arrow-right {
+        float: right;
+
+        margin-top: em(4px, 16px);
+        margin-left: em(20px, 16px);
+      }
+    }
+    .min-slider {
+      width: em(400px);
+
+      text-align: left;
+      a {
+        display: block;
+        float: left;
+
+        margin-right: em(11px);
+      }
+    }
+  }
+}
+
+.usr-info-data-item {
+  padding: em(30px) em(20px);
+
+  border-bottom: 1px solid $base-border-color;
+  background-color: #fff;
+  h3 {
+    font-size: em(16px);
+
+    margin-bottom: 1em;
+
+    text-transform: uppercase;
+
+    color: #83868b;
+  }
+  ul {
+    @include nolist;
+    li {
+      margin-bottom: em(6px);
+    }
+  }
+  .status {
+    font-style: italic;
+
+    display: block;
+    float: right;
+
+    margin: 0;
+
+    color: #b4b9bb;
+    .state-primary {
+      font-size: em(12px);
+
+      color: #b4b9bb;
+    }
+    .icon-arrow-left-s2 {
+      margin-right: em(16px);
+    }
+  }
+  .meta {
+    font-size: em(12px);
+    line-height: 1;
+
+    margin-bottom: em(20px);
+    padding-bottom: em(24px);
+
+    border-bottom: 1px solid $base-border-color;
+    p {
+      margin-bottom: 0;
+    }
+    span {
+      font-style: italic;
+
+      color: #b4b9bc;
+    }
+  }
+  table {
+    width: 100%;
+    td {
+      padding-bottom: em(8px);
+    }
+    td:first-child {
+      width: 60%;
+
+      text-align: left;
+
+      color: #83868b;
+    }
+    td:last-child {
+      text-align: right;
+    }
+  }
+  .common-friends {
+    margin-bottom: em(31px);
+
+    @include clearfix;
+    a {
+      position: relative;
+
+      display: block;
+      float: left;
+
+      margin-right: em(17px);
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .is-online:after {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+
+      display: block;
+
+      width: 6px;
+      height: 6px;
+
+      content: '';
+
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: #95c571;
+    }
+  }
+  .friends-list {
+    table {
+      td {
+        padding-bottom: em(20px);
+      }
+      td:first-child {
+        width: auto;
+        padding-right: em(10px);
+      }
+      td:last-child {
+        font-style: italic;
+
+        color: #b4b9bc;
+        span {
+          margin-left: em(20px);
+        }
+      }
+      tr:last-child td {
+        opacity: .5;
+      }
+    }
+  }
+  .group-list {
+    li {
+      padding: em(20px) 0;
+
+      border-bottom: 1px solid $base-border-color;
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        border-bottom: 0;
+      }
+      a,
+      small {
+        display: block;
+        overflow: hidden;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      a {
+        font-weight: bold;
+      }
+      small {
+        font-style: italic;
+
+        color: #a7b0b3;
+      }
+      img {
+        float: left;
+
+        margin-right: em(12px);
+      }
+    }
+  }
+  .video-item {
+    margin-bottom: em(22px);
+  }
+  .music-list {
+    li {
+      line-height: em(28px);
+
+      margin-bottom: em(20px);
+      a {
+        font-weight: bold;
+      }
+      span {
+        margin-right: em(9px);
+      }
+      time {
+        float: right;
+
+        color: #b4b9bc;
+      }
+    }
+  }
+}
+
+/*
+ * Article item
+ */
+.usr-content-stat {
+  margin-bottom: em(18px);
+
+  @include clearfix;
+  .ucs-items-comments {
+    font-weight: bold;
+
+    display: block;
+    float: left;
+
+    color: #4b75a5;
+    span {
+      margin-right: em(10px);
+    }
+  }
+  .ucs-items-social {
+    font-weight: bold;
+
+    float: right;
+
+    color: #d1d1d1;
+    a {
+      margin-left: em(40px);
+
+      text-align: center;
+
+      color: #d1d1d1;
+      /* Border like invisible! (in psd layout) */
+
+      @include inline-block;
+      span {
+        margin-right: em(10px);
+      }
+    }
+  }
+}
+
+.usr-content {
+  input,
+  .inner {
+    box-sizing: border-box;
+  }
+  .inner {
+    margin: em(20px) em(20px) 0;
+    margin-left: 0;
+    padding: em(20px);
+
+    border: 0 solid #fff;
+    border-radius: $base-border-radius;
+    background: #fff;
+  }
+  .user-photo a {
+    font-size: em(16px);
+    font-weight: bold;
+    line-height: em(32px, 16px);
+
+    color: $base-link-color;
+    &:hover {
+      color: $base-link-hover-color;
+    }
+  }
+  .uci-header,
+  .uci-header-advansed {
+    margin-bottom: em(20px);
+    padding-bottom: em(20px);
+
+    border-bottom: 1px solid #dfe4e6;
+    .message-date {
+      float: right;
+
+      margin-top: em(8px);
+
+      color: #b4b9bc;
+    }
+  }
+  .uci-header-advansed {
+    margin-bottom: 0;
+
+    border-bottom: 0;
+  }
+  .usr-content-photo {
+    position: relative;
+
+    margin-right: em(-20px);
+    margin-bottom: em(44px);
+    margin-left: em(-20px);
+    img {
+      min-width: 100%;
+      max-width: 100%;
+
+      box-shadow: 0 0 8px 0 rgba(0, 0, 0, .2);
+    }
+  }
+  .ucs-repost-item {
+    margin-bottom: em(41px);
+    padding: em(20px);
+
+    border: 1px solid #efefef;
+
+    @include clearfix;
+    figure {
+      float: left;
+
+      width: em(195px);
+      img {
+        max-width: 100%;
+      }
+    }
+    .repost-item-data {
+      margin-left: em(212px);
+    }
+    h2 {
+      font-size: 1em;
+
+      color: #4b75a5;
+    }
+    .repost-item-meta {
+      color: #d1d1d1;
+      span {
+        margin-right: em(16px);
+      }
+      a {
+        color: #0083e4;
+      }
+    }
+  }
+  .ucs-repost-item-advased {
+    margin: 0 0 em(20px);
+    padding: em(20px);
+
+    border: 1px solid $base-border-color;
+    header {
+      margin-bottom: em(20px);
+    }
+    .message-date {
+      float: right;
+
+      margin-top: em(6px);
+
+      color: #b4b9bc;
+    }
+    .usr-content-photo {
+      margin-right: em(-40px);
+      margin-bottom: 0;
+      margin-left: em(-40px);
+    }
+  }
+}
+
+/*
+     * User comments after content
+     */
+.usr-comments-item {
+  header {
+    margin-bottom: 0;
+    padding-top: em(20px);
+
+    border-top: 1px solid #efefef;
+    border-bottom: 0;
+  }
+  .uci-data {
+    padding-left: em(47px);
+  }
+}
+
+
+.col-primary {
+  float: left;
+
+  width: 74%;
+  margin-right: 1%;
+}
+
+.col {
+  float: left;
+
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: em(20px);
+}
+
+.browsehappy {
+  margin: .2em 0;
+  padding: .2em 0;
+
+  color: #000;
+  background: #ccc;
+}
+
+/* ==========================================================================
+   Project custom modules
+   ========================================================================== */
+
+/* ==========================================================================
+   Project modules customization
+   ========================================================================== */
+.usr-content-item.s-advansed {
+  .usr-content-stat {
+    margin-bottom: em(42px);
+  }
+  .uci-data {
+    line-height: 1.8;
+
+    padding-top: em(20px);
+
+    border-top: 1px solid #dfe4e6;
+  }
+}
+
+/* ==========================================================================
+   Import spec modules
+   ========================================================================== */
+
+@import 'jquery.qtip';
+
+/* ==========================================================================
+   Import helpers, queries, print styles
+   ========================================================================== */
+@import 'helpers';
+@import 'queries';
+@import 'print';

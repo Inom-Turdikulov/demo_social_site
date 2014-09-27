@@ -1,0 +1,96 @@
+//
+// Auto Generated (don't edit this file)
+// Added exclude option for *-sprite.scss
+// $s-name: x y offset_x offset_y width height total_width total_height image_path;
+//
+
+$s-arrow-left-s2: 21px 79px -21px -79px 7px 10px 112px 89px '../img/basic-sprite.png';
+$s-arrow-left: 101px 37px -101px -37px 7px 10px 112px 89px '../img/basic-sprite.png';
+$s-arrow-right-s2: 14px 79px -14px -79px 7px 10px 112px 89px '../img/basic-sprite.png';
+$s-arrow-right: 102px 69px -102px -69px 7px 10px 112px 89px '../img/basic-sprite.png';
+$s-bookmarks: 74px 42px -74px -42px 14px 14px 112px 89px '../img/basic-sprite.png';
+$s-caret: 88px 37px -88px -37px 13px 11px 112px 89px '../img/basic-sprite.png';
+$s-cloud: 0px 79px 0px -79px 14px 10px 112px 89px '../img/basic-sprite.png';
+$s-comments: 101px 25px -101px -25px 11px 11px 112px 89px '../img/basic-sprite.png';
+$s-documents: 14px 65px -14px -65px 12px 14px 112px 89px '../img/basic-sprite.png';
+$s-feedback: 60px 65px -60px -65px 14px 13px 112px 89px '../img/basic-sprite.png';
+$s-games: 88px 69px -88px -69px 14px 10px 112px 89px '../img/basic-sprite.png';
+$s-groups: 88px 59px -88px -59px 14px 10px 112px 89px '../img/basic-sprite.png';
+$s-like-s2: 100px 13px -100px -13px 12px 12px 112px 89px '../img/basic-sprite.png';
+$s-like: 88px 13px -88px -13px 12px 12px 112px 89px '../img/basic-sprite.png';
+$s-link: 74px 56px -74px -56px 12px 9px 112px 89px '../img/basic-sprite.png';
+$s-logo: 28px 37px -28px -37px 37px 21px 112px 89px '../img/basic-sprite.png';
+$s-messages: 88px 48px -88px -48px 14px 11px 112px 89px '../img/basic-sprite.png';
+$s-mobile: 65px 37px -65px -37px 9px 16px 112px 89px '../img/basic-sprite.png';
+$s-music: 0px 65px 0px -65px 14px 14px 112px 89px '../img/basic-sprite.png';
+$s-new-message: 88px 0px -88px 0px 24px 13px 112px 89px '../img/basic-sprite.png';
+$s-new-post: 26px 65px -26px -65px 22px 14px 112px 89px '../img/basic-sprite.png';
+$s-news: 74px 0px -74px 0px 14px 14px 112px 89px '../img/basic-sprite.png';
+$s-photo: 74px 28px -74px -28px 14px 14px 112px 89px '../img/basic-sprite.png';
+$s-play: 0px 37px 0px -37px 28px 28px 112px 89px '../img/basic-sprite.png';
+$s-reminder: 48px 65px -48px -65px 12px 13px 112px 89px '../img/basic-sprite.png';
+$s-search: 102px 48px -102px -48px 10px 10px 112px 89px '../img/basic-sprite.png';
+$s-settings: 74px 14px -74px -14px 14px 14px 112px 89px '../img/basic-sprite.png';
+$s-share: 102px 59px -102px -59px 8px 10px 112px 89px '../img/basic-sprite.png';
+$s-user: 74px 65px -74px -65px 14px 13px 112px 89px '../img/basic-sprite.png';
+$s-usr-add-to-friends: 37px 0px -37px 0px 37px 37px 112px 89px '../img/basic-sprite.png';
+$s-usr-new-message: 0px 0px 0px 0px 37px 37px 112px 89px '../img/basic-sprite.png';
+$s-video: 88px 25px -88px -25px 13px 12px 112px 89px '../img/basic-sprite.png';
+
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite, $extra-offset-x: 0, $extra-offset-y: 0) {
+  $sprite-offset-x: nth($sprite, 3) + $extra-offset-x;
+  $sprite-offset-y: nth($sprite, 4) + $extra-offset-y;
+  background-position: $sprite-offset-x $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  background-image: url(nth($sprite, 9));
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+///////////////////////////////////////////////////
+// R E T I N A !
+///////////////////////////////////////////////////
+
+// Shorthand retina sprite mixin
+// via https://github.com/Ensighten/spritesmith/issues/19#issuecomment-24843826
+@mixin sprite-2x($sprite1x, $sprite2x) {
+  @include sprite($sprite1x);
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    // ...but set background-size to the size of the 1x image...
+    background-size: nth($sprite1x, 7) nth($sprite1x, 8);
+    // Use the 2x image...
+
+    @include sprite-image($sprite2x);
+    // ...so you can use 1x dimensions & position!
+    @include sprite-position($sprite1x);
+    @include sprite-height($sprite1x);
+    @include sprite-width($sprite1x);
+  }
+}
+
+// Set retina background-image only
+// Once this is set you can use the position, height & width mixins individually with 1x values
+// (e.g. if you only want to set a new background-position on hover, don't need to re-set background-image)
+@mixin sprite-2x-image($sprite1x, $sprite2x) {
+  @include sprite-image($sprite1x);
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-size: nth($sprite1x, 7) nth($sprite1x, 8);
+
+    @include sprite-image($sprite2x);
+  }
+}

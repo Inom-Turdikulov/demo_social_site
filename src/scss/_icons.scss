@@ -1,0 +1,132 @@
+/* ==========================================================================
+   Projects icons
+   ========================================================================== */
+/* Classes starting with 'icon-' (need add js support for old browser!) */
+[class^='icon-'] {
+  @include inline-block;
+  @include ir;
+}
+
+.icon-search {
+  @include sprite($s-search);
+}
+
+.icon-new-message {
+  @include sprite($s-new-message);
+}
+.icon-new-post {
+  @include sprite($s-new-post);
+}
+.icon-reminder {
+  @include sprite($s-reminder);
+}
+
+/*
+ * Left sidebar icons
+ */
+.icon-user {
+  @include sprite($s-user);
+}
+
+.icon-photo {
+  @include sprite($s-photo);
+}
+
+.icon-video {
+  @include sprite($s-video);
+}
+
+.icon-music {
+  @include sprite($s-music);
+}
+
+.icon-messages {
+  @include sprite($s-messages);
+}
+
+.icon-groups {
+  @include sprite($s-groups);
+}
+
+.icon-news {
+  @include sprite($s-news);
+}
+
+.icon-feedback {
+  @include sprite($s-feedback);
+}
+
+.icon-bookmarks {
+  @include sprite($s-bookmarks);
+}
+
+.icon-settings {
+  @include sprite($s-settings);
+}
+
+.icon-games {
+  @include sprite($s-games);
+}
+
+.icon-documents {
+  @include sprite($s-documents);
+}
+
+.icon-cloud {
+  @include sprite($s-cloud);
+}
+
+/*
+ * Usr info icons
+ */
+.icon-usr-add-to-friends {
+  @include sprite($s-usr-add-to-friends);
+}
+
+.icon-usr-new-message {
+  @include sprite($s-usr-new-message);
+}
+
+.icon-arrow-left {
+  @include sprite($s-arrow-left);
+}
+
+.icon-arrow-right {
+  @include sprite($s-arrow-right);
+}
+
+.icon-arrow-left-s2 {
+  @include sprite($s-arrow-left-s2);
+}
+
+.icon-arrow-right-s2 {
+  @include sprite($s-arrow-right-s2);
+}
+
+.icon-share {
+  @include sprite($s-share);
+}
+
+.icon-like {
+  @include sprite($s-like);
+}
+
+.icon-like-s2 {
+  @include sprite($s-like-s2);
+}
+
+.icon-comments {
+  @include sprite($s-comments);
+}
+
+.icon-link {
+  @include sprite($s-link);
+}
+
+.icon-mobile {
+  @include sprite($s-mobile);
+}
+
+.icon-play {
+  @include sprite($s-play);
+}
