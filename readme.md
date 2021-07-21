@@ -1,3 +1,6 @@
+# Learning Project (super outdated)
+Demo url: http://inomoz.github.io/demo_social_site/
+
 Inomoz CodeStyle
 ====================
 1. CodeStyle (based on Google CodeStyle)
